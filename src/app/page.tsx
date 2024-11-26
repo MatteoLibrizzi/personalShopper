@@ -1,7 +1,7 @@
 "use client";
 import DetailPage from "@/components/ui/detailPage";
 import bottle from "../../public/bottle.webp";
-import familyBottle from "../../public/familyBottle.jpg";
+import familyBottle from "../../public/famBottle.png";
 import ecoBottle from "../../public/ecoBottle.jpg";
 import { useState } from "react";
 import { Loader } from "lucide-react";
