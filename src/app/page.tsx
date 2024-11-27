@@ -1,7 +1,6 @@
 "use client";
 import DetailPage from "@/components/ui/detailPage";
 import bottle from "../../public/bottle.webp";
-import familyBottle from "../../public/famBottle.png";
 import ecoBottle from "../../public/ecoBottle.jpg";
 import { useState } from "react";
 import { Loader } from "lucide-react";
@@ -23,7 +22,6 @@ export default function Home() {
   const [likesInFreetime, setLikesInFreetime] = useState("");
   const [worksInSector, setWorksInSector] = useState("");
   const [isEcoFriendly, setIsEcoFriendly] = useState(false);
-  const [isFamilyDriven, setIsFamilyDriven] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   const [imageUrl, setImageUrl] = useState(bottle.src);
@@ -40,7 +38,6 @@ export default function Home() {
           likesInFreetime,
           worksInSector,
           isEcoFriendly,
-          isFamilyDriven,
         }),
       });
       if (!response.ok) {
@@ -53,7 +50,6 @@ export default function Home() {
       likesInFreetime,
       worksInSector,
       isEcoFriendly,
-      isFamilyDriven,
     ],
     enabled: false,
   });
@@ -62,9 +58,7 @@ export default function Home() {
     e.preventDefault();
     if (isEcoFriendly) {
       setImageUrl(ecoBottle.src);
-    } else if (isFamilyDriven) {
-      setImageUrl(familyBottle.src);
-    }
+    } 
     if (age && likesInFreetime && worksInSector) {
       setFormSubmitted(true);
       refetch();
@@ -126,14 +120,6 @@ export default function Home() {
               onCheckedChange={setIsEcoFriendly}
             />
             <Label htmlFor="isEcoFriendly">Is Eco-Friendly</Label>
-          </div>
-          <div className="flex items-center space-x-2">
-            <Switch
-              id="isFamilyDriven"
-              checked={isFamilyDriven}
-              onCheckedChange={setIsFamilyDriven}
-            />
-            <Label htmlFor="isFamilyDriven">Is Family-Driven</Label>
           </div>
           <Button
             type="submit"
